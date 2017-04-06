@@ -15,20 +15,21 @@ public class SongManager {
     final String MEDIA_PATH = "/storage/emulated/0/Download/";
     /*  Initialize an ArrayList with type SongModel*/
     private ArrayList<SongModel> songList = new ArrayList<SongModel>();
+
     /*
     * implement getPlaylist()method to read all mp3 files from storage/emulate/0
     * store them in ArrayList
     * */
-    public ArrayList<SongModel> getPlayList(){
+    public ArrayList<SongModel> getPlayList() {
 
         /* get reference to folder Download */
-        File home =new File(MEDIA_PATH);
+        File home = new File(MEDIA_PATH);
         /* if exist mp3 file then use for loop to add each element to ArrayList */
-        if(home.listFiles(new FileExtensionFilter()).length>0){
-            for(File file : home.listFiles(new FileExtensionFilter())){
+        if (home.listFiles(new FileExtensionFilter()).length > 0) {
+            for (File file : home.listFiles(new FileExtensionFilter())) {
                 SongModel song = new SongModel();
                 /* title = name of song - ".mp3"  */
-                song.title = file.getName().substring(0,(file.getName().length()-4));
+                song.title = file.getName().substring(0, (file.getName().length() - 4));
                 song.path = file.getPath();
 
                 /* add each song to playlist*/
@@ -36,8 +37,9 @@ public class SongManager {
             }
         }
         /* return list song*/
-        return  songList;
+        return songList;
     }
+
     /*
     *  define class Filter files which having .mp3 extension
     */
