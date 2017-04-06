@@ -5,4 +5,6 @@ package com.example.admin.musicplayer.model;
  */
 
 public class SongModel {
+    public String title;
+    public String path;
 }
